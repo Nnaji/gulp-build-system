@@ -1,23 +1,32 @@
 {
-  "name": "gulp-build-system",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nnaji/gulp-build-system.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nnaji/gulp-build-system/issues"
-  },
-  "homepage": "https://github.com/Nnaji/gulp-build-system#readme",
-  "devDependencies": {
-    "gulp": "^4.0.0"
-  }
+    "name": "gulp-build-system",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nnaji/gulp-build-system.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Nnaji/gulp-build-system/issues"
+    },
+    "homepage": "https://github.com/Nnaji/gulp-build-system#readme",
+    "devDependencies": {
+        "gulp": "^4.0.0",
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/register": "^7.0.0",
+        "browserify": "^16.2.3",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0",
+        "babelify": "^10.0.0",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.1"
+    }
 }
