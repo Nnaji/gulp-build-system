@@ -25,6 +25,17 @@ let jscripts = function() {
         .pipe(gulp.dest('./dist/assets/js')));
 };
 
+let styles = function() {
+    console.log('Running Styles task');
+    return (gulp.src('./src/styles/main.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(cleanCss())
+        .pipe(sourcemaps.write("./map"))
+        .pipe(gulp.dest('./dist/assets/css'))
+    );
+
+};
 
 
-export { jscripts };
+export { jscripts, styles };
