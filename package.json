@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Nnaji/gulp-build-system/issues"
   },
-  "homepage": "https://github.com/Nnaji/gulp-build-system#readme"
+  "homepage": "https://github.com/Nnaji/gulp-build-system#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
 }
