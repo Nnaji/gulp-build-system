@@ -6,6 +6,9 @@ import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 import source from 'vinyl-source-stream';
 
+import sass from 'gulp-sass';
+import cleanCss from 'gulp-clean-css';
+
 let jscripts = function() {
     console.log('Running JS Tasks');
     return (
@@ -20,6 +23,19 @@ let jscripts = function() {
         .pipe(uglify())
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./dist/assets/js')));
-}
+};
 
-export { jscripts };
+let styles = function() {
+    console.log('Running Styles task');
+    return (gulp.src('./src/styles/main.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(cleanCss())
+        .pipe(sourcemaps.write("./map"))
+        .pipe(gulp.dest('./dist/assets/css'))
+    );
+
+};
+
+
+export { jscripts, styles };
