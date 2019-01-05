@@ -9,11 +9,15 @@ import source from 'vinyl-source-stream';
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';
 
+// Local imports
+import { paths } from './gutils/paths';
+
+// Javascript Task section f()
 let jscripts = function() {
     console.log('Running JS Tasks');
     return (
         browserify({
-            entries: ['./src/scripts/js/main.js']
+            entries: [paths.jscripts.src]
         })
         .transform(babelify)
         .bundle()
@@ -22,19 +26,19 @@ let jscripts = function() {
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist/assets/js')));
+        .pipe(gulp.dest(paths.jscripts.dest)));
 };
 
+// Styles Task section f()
 let styles = function() {
     console.log('Running Styles task');
-    return (gulp.src('./src/styles/main.scss')
+    return (gulp.src(paths.styles.src)
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cleanCss())
         .pipe(sourcemaps.write("./map"))
-        .pipe(gulp.dest('./dist/assets/css'))
+        .pipe(gulp.dest(paths.styles.dest))
     );
-
 };
 
 
