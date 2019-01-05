@@ -9,6 +9,9 @@ import source from 'vinyl-source-stream';
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';
 
+// Local imports
+
+// Javascript Task section f()
 let jscripts = function() {
     console.log('Running JS Tasks');
     return (
@@ -25,6 +28,7 @@ let jscripts = function() {
         .pipe(gulp.dest('./dist/assets/js')));
 };
 
+// Styles Task section f()
 let styles = function() {
     console.log('Running Styles task');
     return (gulp.src('./src/styles/main.scss')
@@ -34,7 +38,6 @@ let styles = function() {
         .pipe(sourcemaps.write("./map"))
         .pipe(gulp.dest('./dist/assets/css'))
     );
-
 };
 
 
