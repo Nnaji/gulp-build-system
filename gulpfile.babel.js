@@ -6,7 +6,6 @@ import sourcemaps from 'gulp-sourcemaps';
 import uglify from 'gulp-uglify';
 import source from 'vinyl-source-stream';
 import eslint from 'gulp-eslint';
-
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';
 
@@ -16,14 +15,7 @@ import { paths } from './gutils/paths';
 // Javascript Task section f()
 let jscripts = function() {
     console.log('Running JS Tasks');
-<<<<<<< HEAD
-    return (browserify({ entries: ['./src/scripts/js/main.js'] })
-=======
-    return (
-        browserify({
-            entries: [paths.jscripts.src]
-        })
->>>>>>> 787f695ae7dba6f857d67907535db2b31f480c4c
+    return (browserify({ entries: [paths.jscripts.src] })
         .transform(babelify)
         .bundle()
         .pipe(source('bundle.min.js'))
@@ -31,7 +23,6 @@ let jscripts = function() {
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write('./maps'))
-<<<<<<< HEAD
         .pipe(gulp.dest('./dist/assets/js')));
 };
 
@@ -44,11 +35,6 @@ let lint = function() {
     );
 };
 
-export { jscripts, lint };
-=======
-        .pipe(gulp.dest(paths.jscripts.dest)));
-};
-
 // Styles Task section f()
 let styles = function() {
     console.log('Running Styles task');
@@ -56,11 +42,10 @@ let styles = function() {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cleanCss())
-        .pipe(sourcemaps.write("./map"))
+        .pipe(sourcemaps.write('./map'))
         .pipe(gulp.dest(paths.styles.dest))
     );
 };
 
 
-export { jscripts, styles };
->>>>>>> 787f695ae7dba6f857d67907535db2b31f480c4c
+export { jscripts, styles, lint };
