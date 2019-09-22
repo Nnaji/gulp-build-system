@@ -4,7 +4,7 @@
     "description": "Gulp Build System for client side Development",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "mocha",
         "lint": "eslint ./src/scripts/js/*.js --fix --cache"
     },
     "repository": {
@@ -13,7 +13,7 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/Nnaji/gulp-build-system/issues"
     },
