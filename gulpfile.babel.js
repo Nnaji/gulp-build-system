@@ -8,47 +8,65 @@ import source from 'vinyl-source-stream';
 import eslint from 'gulp-eslint';
 import sass from 'gulp-sass';
 import cleanCss from 'gulp-clean-css';
-
+import * as fs from 'fs';
+import del from 'del';
 
 // Local imports
-import { paths } from './gutils/paths';
-import { logMessages } from './gutils/log-messages';
-
+import {paths} from './gutils/paths';
+import {logMessages} from './gutils/log-messages';
 
 // Javascript Task section f()
 let jscripts = function() {
     logMessages('Running JS Tasks');
     lint();
-    return (browserify({ entries: [paths.jscripts.src] }).transform(babelify).bundle()
+    return browserify({entries: [paths.jscripts.src]})
+        .transform(babelify)
+        .bundle()
         .pipe(source('bundle.min.js'))
         .pipe(buffer())
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist/assets/js')));
+        .pipe(gulp.dest('./dist/assets/js'));
 };
 
 // JS linting Task section f()
 let lint = function() {
+    logMessages('Running Linting Task');
     logMessages('Linting JS files');
-    return (gulp.src(['./src/scripts/js/*.js', './*js', '!./node_modules/**/*.js'])
+    return gulp
+        .src(['./src/scripts/js/*.js', './*js', '!./node_modules/**/*.js'])
         .pipe(eslint())
         .pipe(eslint.format())
-        .pipe(eslint.failAfterError())
-    );
+        .pipe(eslint.failAfterError());
 };
 
 // Styles Task section f()
 let styles = function() {
     logMessages('Running Styles task');
-    return (gulp.src(paths.styles.src)
+    return gulp
+        .src(paths.styles.src)
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cleanCss())
         .pipe(sourcemaps.write('./map'))
-        .pipe(gulp.dest(paths.styles.dest))
-    );
+        .pipe(gulp.dest(paths.styles.dest));
 };
 
+// Clean Task Section
+let clean = function(cb) {
+    logMessages('Runnig Cleaning Task');
+    if (!fs.existsSync('dist')) {
+        logMessages('dist folder does not exists');
+    } else {
+        logMessages('Deleting dist folder........');
+        del.sync('dist');
+        logMessages('dist folder deleted');
+    }
+    cb();
+};
+const build = gulp.series(clean, lint, jscripts, styles);
 
-export { jscripts, styles, lint };
+export default build;
+
+export {clean, jscripts, styles, lint};
