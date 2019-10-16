@@ -7,6 +7,7 @@ import uglify from 'gulp-uglify';
 import source from 'vinyl-source-stream';
 import eslint from 'gulp-eslint';
 import sass from 'gulp-sass';
+import imagemin from 'gulp-imagemin';
 import cleanCss from 'gulp-clean-css';
 import * as fs from 'fs';
 import del from 'del';
@@ -65,8 +66,17 @@ let clean = function(cb) {
     }
     cb();
 };
-const build = gulp.series(clean, lint, jscripts, styles);
+
+// Image Task Section
+let image = function() {
+    logMessages('Running Image Task');
+    return gulp
+        .src(paths.images.src)
+        .pipe(imagemin({verbose: true}))
+        .pipe(gulp.dest(paths.images.dest));
+};
+const build = gulp.series(clean, lint, jscripts, styles, image);
 
 export default build;
 
-export {clean, jscripts, styles, lint};
+export {clean, jscripts, styles, lint, image};
