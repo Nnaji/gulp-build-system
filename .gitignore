@@ -1,9 +1,10 @@
 node_modules
 img
-images
+images/
 dist
 .DS_Store
 log
 index.sublime-workspace
 src/images
+src/images/
 
