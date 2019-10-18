@@ -14,4 +14,4 @@ let paths = {
     },
 };
 
-export {paths};
+export { paths };
