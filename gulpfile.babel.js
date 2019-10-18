@@ -13,14 +13,14 @@ import * as fs from 'fs';
 import del from 'del';
 
 // Local imports
-import {paths} from './gutils/paths';
-import {logMessages} from './gutils/log-messages';
+import { paths } from './gutils/paths';
+import { logMessages } from './gutils/log-messages';
 
 // Javascript Task section f()
 let jscripts = function() {
     logMessages('Running JS Tasks');
     lint();
-    return browserify({entries: [paths.jscripts.src]})
+    return browserify({ entries: [paths.jscripts.src] })
         .transform(babelify)
         .bundle()
         .pipe(source('bundle.min.js'))
@@ -72,11 +72,17 @@ let image = function() {
     logMessages('Running Image Task');
     return gulp
         .src(paths.images.src)
-        .pipe(imagemin({verbose: true}))
+        .pipe(imagemin({ verbose: true }))
         .pipe(gulp.dest(paths.images.dest));
 };
+
+let watch = () => {
+    gulp.watch('./src/scripts/**/*.js', jscripts);
+    gulp.watch('./src/styles/**/*.scss', styles);
+};
+
 const build = gulp.series(clean, lint, jscripts, styles, image);
 
 export default build;
 
-export {clean, jscripts, styles, lint, image};
+export { clean, jscripts, styles, lint, image, watch };
