@@ -11,7 +11,18 @@ import imagemin from 'gulp-imagemin';
 import cleanCss from 'gulp-clean-css';
 import * as fs from 'fs';
 import del from 'del';
+import browserSync from 'browser-sync';
+browserSync.create();
 
+// Dev Server with browsersync
+let serve = function() {
+    browserSync.init({
+        server: {
+            baseDir: './',
+        },
+    });
+    wFiles();
+};
 // Local imports
 import { paths } from './gutils/paths';
 import { logMessages } from './gutils/log-messages';
@@ -28,7 +39,8 @@ let jscripts = function() {
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist/assets/js'));
+        .pipe(gulp.dest('./dist/assets/js'))
+        .pipe(browserSync.stream());
 };
 
 // JS linting Task section f()
@@ -51,7 +63,8 @@ let styles = function() {
         .pipe(sass())
         .pipe(cleanCss())
         .pipe(sourcemaps.write('./map'))
-        .pipe(gulp.dest(paths.styles.dest));
+        .pipe(gulp.dest(paths.styles.dest))
+        .pipe(browserSync.stream());
 };
 
 // Clean Task Section
@@ -73,16 +86,18 @@ let image = function() {
     return gulp
         .src(paths.images.src)
         .pipe(imagemin({ verbose: true }))
-        .pipe(gulp.dest(paths.images.dest));
+        .pipe(gulp.dest(paths.images.dest))
+        .pipe(browserSync.stream());
 };
 
-let watch = () => {
+let wFiles = () => {
     gulp.watch('./src/scripts/**/*.js', jscripts);
     gulp.watch('./src/styles/**/*.scss', styles);
+    gulp.watch('./*.html').on('change', browserSync.reload);
 };
 
-const build = gulp.series(clean, lint, jscripts, styles, image);
+const build = gulp.series(clean, gulp.parallel(styles, jscripts, image, serve));
 
 export default build;
 
-export { clean, jscripts, styles, lint, image, watch };
+export { clean, jscripts, styles, lint, image, serve, wFiles };
