@@ -1,18 +1,17 @@
-import util from 'gulp-util';
+import log from 'fancy-log';
+import c from 'ansi-colors';
 
 let logMessages = function(msg) {
-    if (typeof(msg) === 'object') {
+    if (typeof msg === 'object') {
         for (let i in msg) {
             if (msg.hasOwnProperty(i)) {
-                util.log(util.colors.grey(msg[i]));
+                log.info(c.greenBright(msg[i]));
             }
         }
     } else {
-        // console.log(msg);
-        util.log(util.colors.grey(msg));
+    // console.log(msg);
+        log.info(c.greenBright(msg));
     }
 };
-
-
 
 export { logMessages };

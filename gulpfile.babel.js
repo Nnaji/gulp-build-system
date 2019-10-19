@@ -9,13 +9,17 @@ import eslint from 'gulp-eslint';
 import sass from 'gulp-sass';
 import imagemin from 'gulp-imagemin';
 import cleanCss from 'gulp-clean-css';
-import * as fs from 'fs';
+import fs from 'fs';
 import del from 'del';
+import print from 'gulp-print';
 import browserSync from 'browser-sync';
+// import * as log from 'fancy-log';
+// import * as c from 'ansi-colors';
 browserSync.create();
 
 // Dev Server with browsersync
 let serve = function() {
+    logMessages('Running Serve Task');
     browserSync.init({
         server: {
             baseDir: './',
@@ -49,6 +53,7 @@ let lint = function() {
     logMessages('Linting JS files');
     return gulp
         .src(['./src/scripts/js/*.js', './*js', '!./node_modules/**/*.js'])
+        .pipe(print())
         .pipe(eslint())
         .pipe(eslint.format())
         .pipe(eslint.failAfterError());
@@ -59,6 +64,7 @@ let styles = function() {
     logMessages('Running Styles task');
     return gulp
         .src(paths.styles.src)
+        .pipe(print())
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cleanCss())
@@ -85,12 +91,14 @@ let image = function() {
     logMessages('Running Image Task');
     return gulp
         .src(paths.images.src)
+        .pipe(print())
         .pipe(imagemin({ verbose: true }))
         .pipe(gulp.dest(paths.images.dest))
         .pipe(browserSync.stream());
 };
 
 let wFiles = () => {
+    logMessages('Running Watch Files Task');
     gulp.watch('./src/scripts/**/*.js', jscripts);
     gulp.watch('./src/styles/**/*.scss', styles);
     gulp.watch('./*.html').on('change', browserSync.reload);
