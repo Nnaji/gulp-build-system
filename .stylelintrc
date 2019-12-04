@@ -1,7 +1,3 @@
 {
-  extends: ["stylelint-prettier/recommended"],
-  "rules": {
-    "prettier/prettier": [true, {"singleQuote": true, "tabWidth": 4}]
-  }
-
+" extends": ["stylelint-config-prettier" "stylelint-prettier/recommended"],
 }
