@@ -4,6 +4,8 @@
     "description": "Gulp Build System for client side Development",
     "main": "index.js",
     "scripts": {
+        "gulp": "gulp",
+        "start": "npm run gulp",
         "test": "mocha",
         "lint:js": "eslint ./src/scripts/js/*.js --fix --cache",
         "lint:style": "stylelint ./src/styles/*.scss --fix --cache"
