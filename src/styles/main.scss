@@ -5,18 +5,24 @@
 
 /* set the default color, font-size, and line height */
 html {
-  color: #333;
-  font-size: 1em;
-  line-height: 1.4;
+    color: #333;
+    font-size: 1em;
+    line-height: 1.4;
 }
 
 /* make images and embedded media fluid */
 img,
 object {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 /* =======================================
     author styles
     place your custom styles below here
 ========================================== */
+body {
+    background-color: blue;
+    h1 {
+        color: red;
+    }
+}

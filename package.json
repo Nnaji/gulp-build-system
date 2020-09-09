@@ -1,48 +1,48 @@
 {
-  "name": "gulp-build-system",
-  "version": "1.0.0",
-  "description": "Gulp Build System for client side Development",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha",
-    "lint": "eslint ./src/scripts/js/*.js --fix --cache"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nnaji/gulp-build-system.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Nnaji/gulp-build-system/issues"
-  },
-  "homepage": "https://github.com/Nnaji/gulp-build-system#readme",
-  "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "@babel/register": "^7.0.0",
-    "ansi-colors": "^4.1.1",
-    "babelify": "^10.0.0",
-    "browser-sync": "^2.26.7",
-    "browserify": "^16.2.3",
-    "del": "^5.1.0",
-    "eslint": "^5.12.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "fancy-log": "^1.3.3",
-    "gulp": "^4.0.0",
-    "gulp-clean-css": "^4.0.0",
-    "gulp-eslint": "^5.0.0",
-    "gulp-imagemin": "^6.1.1",
-    "gulp-print": "^5.0.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
-  }
+    "name": "gulp-build-system",
+    "version": "1.0.0",
+    "description": "Gulp Build System for client side Development",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha",
+        "lint": "eslint ./src/scripts/js/*.js --fix --cache"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nnaji/gulp-build-system.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Nnaji/gulp-build-system/issues"
+    },
+    "homepage": "https://github.com/Nnaji/gulp-build-system#readme",
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/preset-env": "^7.2.3",
+        "@babel/register": "^7.0.0",
+        "ansi-colors": "^4.1.1",
+        "babelify": "^10.0.0",
+        "browser-sync": "^2.26.7",
+        "browserify": "^16.2.3",
+        "del": "^5.1.0",
+        "eslint": "^5.12.0",
+        "eslint-config-standard": "^12.0.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-node": "^8.0.1",
+        "eslint-plugin-promise": "^4.0.1",
+        "eslint-plugin-standard": "^4.0.0",
+        "fancy-log": "^1.3.3",
+        "gulp": "^4.0.0",
+        "gulp-clean-css": "^4.0.0",
+        "gulp-eslint": "^5.0.0",
+        "gulp-imagemin": "^6.1.1",
+        "gulp-print": "^5.0.2",
+        "gulp-sass": "^4.0.2",
+        "gulp-sourcemaps": "^2.6.4",
+        "gulp-uglify": "^3.0.1",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
+    }
 }
