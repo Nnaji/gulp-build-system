@@ -81,7 +81,7 @@ let styles = function() {
     let processors = [
         autoprefixer(),
         stylelint({
-            reporters: [{ formatter: 'string', fix: true }],
+            reporters: [{ formatter: 'string', fix: false }],
         }),
     ];
     return gulp
