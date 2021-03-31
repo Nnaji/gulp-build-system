@@ -23,6 +23,7 @@
         "@babel/preset-env": "^7.2.3",
         "@babel/register": "^7.0.0",
         "ansi-colors": "^4.1.1",
+        "autoprefixer": "^9.8.6",
         "babelify": "^10.0.0",
         "browser-sync": "^2.26.7",
         "browserify": "^16.2.3",
@@ -38,10 +39,12 @@
         "gulp-clean-css": "^4.0.0",
         "gulp-eslint": "^5.0.0",
         "gulp-imagemin": "^6.1.1",
+        "gulp-postcss": "^8.0.0",
         "gulp-print": "^5.0.2",
         "gulp-sass": "^4.0.2",
         "gulp-sourcemaps": "^2.6.4",
         "gulp-uglify": "^3.0.1",
+        "stylelint": "^13.7.0",
         "vinyl-buffer": "^1.0.1",
         "vinyl-source-stream": "^2.0.0"
     }
