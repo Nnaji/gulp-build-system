@@ -41,7 +41,7 @@
         "gulp-imagemin": "^6.1.1",
         "gulp-postcss": "^8.0.0",
         "gulp-print": "^5.0.2",
-        "gulp-sass": "^4.0.2",
+        "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "^2.6.4",
         "gulp-uglify": "^3.0.1",
         "stylelint": "^13.7.0",
