@@ -25,7 +25,7 @@
         "ansi-colors": "^4.1.1",
         "autoprefixer": "^9.8.6",
         "babelify": "^10.0.0",
-        "browser-sync": "^2.26.7",
+        "browser-sync": "^2.28.3",
         "browserify": "^16.2.3",
         "del": "^5.1.0",
         "eslint": "^5.12.0",
